@@ -1,5 +1,13 @@
 <template>
   <div class="mobile-cont">
+    <video
+      style="position: absolute; top: -1px; width: 100%"
+      autoplay
+      loop
+      muted
+      playsinline
+      src="@assets/temp-video.mp4"
+    ></video>
     <img src="@assets/image/2024.png" class="img-2024" />
 
     <div class="home-box">
@@ -45,11 +53,13 @@ import Dialog from "../components/Dialog.vue";
   .img-2024 {
     width: 45%;
     padding-top: 40px;
+    position: absolute;
   }
 
   .home-box {
     width: 100%;
     padding: 0 10px;
+    margin-top: 400px !important;
     height: 450px;
     background-image: url("@assets/image/box.png");
     background-size: 95% auto;

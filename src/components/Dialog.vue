@@ -1,24 +1,21 @@
 <template>
-  <div v-show="isModalVisible" class="modal-overlay" >
-    <div class="modal-content" @click.stop>
-      <header class="modal-header">
-        <slot name="header">默认标题</slot>
-        <button class="modal-close" @click="closeModal">&times;</button>
-      </header>
-      <main class="modal-body">
-        <slot>默认内容</slot>
-      </main>
-      <footer class="modal-footer">
-        <slot name="footer">
-          <button @click="closeModal">关闭</button>
-        </slot>
-      </footer>
+  <div v-show="isModalVisible" class="modal-overlay">
+    <div class="modal-content">
+      <div class="header-box">
+        <img class="header-arrow" src="@assets/image/left.png" />
+        <img class="header-center" src="@assets/image/pop-title.png" />
+        <img class="header-arrow" src="@assets/image/right.png" />
+      </div>
+
+      <div class="content-box">
+        <slot name="content"></slot>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, defineEmits } from "vue";
+import { ref, defineEmits, watch } from "vue";
 
 const isModalVisible = ref(false);
 
@@ -28,20 +25,34 @@ function openModal() {
   isModalVisible.value = true;
 }
 
+// document.body.style.overflow = "hidden";
+
+// 阻止滚动
+watch(isModalVisible, (newVal, oldVal) => {
+  if (newVal && document?.body) {
+    // When the modal is open, prevent background scrolling
+    document.body.style.overflow = "hidden";
+  } else {
+    // When the modal is closed, allow background scrolling
+    document.body.style.overflow = "";
+  }
+});
+
 function closeModal() {
   isModalVisible.value = false;
   emits("close");
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .modal-overlay {
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,33 +60,44 @@ function closeModal() {
 }
 
 .modal-content {
-  background: white;
   padding: 20px;
   border-radius: 5px;
-  min-width: 300px;
   position: relative;
   z-index: 1001;
-}
-
-.modal-header {
+  border: 1px solid pink;
+  height: 400px;
+  background-image: url("@assets/image/pop-content.png");
+  background-size: 370px auto;
+  background-repeat: no-repeat;
+  background-position: top center;
+  position: relative;
+  bottom: 30px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
 }
 
-.modal-body {
-  margin-top: 20px;
+.header-box {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  top: 40px;
+
+  .header-arrow {
+    width: 20%;
+    transform: scale(0.5);
+  }
+
+  .header-center {
+    width: 200px;
+  }
 }
 
-.modal-footer {
-  margin-top: 20px;
-  text-align: right;
-}
-
-.modal-close {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-size: 1.5rem;
+.content-box {
+  border: 1px solid green;
+  margin-top: 80px;
+  width: 280px;
+  height: 35%;
 }
 </style>
