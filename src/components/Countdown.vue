@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, defineProps } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 
@@ -92,7 +92,6 @@ onUnmounted(() => {
   display: flex;
   justify-content: space-between;
 
-  background-color: red;
   .item-cont {
     width: 50px;
     height: 70px;
@@ -104,7 +103,7 @@ onUnmounted(() => {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
       color: white;
       background-color: #872a17;
@@ -114,7 +113,8 @@ onUnmounted(() => {
       width: 100%;
       text-align: center;
       padding-top: 5px;
-      color: #ac5a37;
+      color: #b96d44;
+      font-size: 12px;
     }
   }
 }
