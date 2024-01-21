@@ -23,7 +23,7 @@
 
 <script setup>
 import Countdown from "../components/Countdown.vue";
-import SaveImg from "../components/Saveimg.vue";
+// import SaveImg from "../components/Saveimg.vue";
 import Dialog from "../components/Dialog.vue";
 </script>
 
@@ -50,7 +50,7 @@ import Dialog from "../components/Dialog.vue";
   .home-box {
     width: 100%;
     padding: 0 10px;
-    height: 400px;
+    height: 450px;
     background-image: url("@assets/image/box.png");
     background-size: 95% auto;
     background-repeat: no-repeat;
