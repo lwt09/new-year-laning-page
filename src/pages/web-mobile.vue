@@ -8,15 +8,23 @@
       <div class="countdown-sec">
         <Countdown endTime="2024-02-09T20:00:00" />
       </div>
-      <img class="home-box-title-sec" src="@assets/image/home-box-title.png" />
-      <img class="QR-code" src="@assets/image/Qr-code-temp.png" />
+      <div style="position: relative; padding-bottom: 10px">
+        <img
+          class="home-box-title-sec"
+          src="@assets/image/home-box-title.png"
+        />
+        <img class="QR-code" src="@assets/image/Qr-code-temp.png" />
+      </div>
     </div>
   </div>
+
+  <Dialog />
 </template>
 
 <script setup>
 import Countdown from "../components/Countdown.vue";
 import SaveImg from "../components/Saveimg.vue";
+import Dialog from "../components/Dialog.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -76,7 +84,7 @@ import SaveImg from "../components/Saveimg.vue";
     .QR-code {
       width: 33%;
       position: absolute;
-      bottom: 60px;
+      bottom: 0px;
       left: 50%;
 
       transform: translateX(-50%);
