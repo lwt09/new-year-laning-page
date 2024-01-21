@@ -8,7 +8,29 @@
       </div>
 
       <div class="content-box">
-        <slot name="content"></slot>
+        <template v-if="step === 1">
+          <img src="@assets/image/avatar.png" class="avatar" />
+          <div class="content-info">
+            <div class="row">
+              <span class="label">昵称</span>
+              <input type="text" />
+            </div>
+            <div class="row">
+              <span class="label">性别</span>
+              <input type="checkbox" /><span>男</span>
+              <input type="checkbox" /><span>女</span>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="footer-box">
+        <slot name="footer">
+          <div class="back"><img src="@assets/image/back.png" /></div>
+          <div class="next"><img src="@assets/image/next.png" /></div>
+        </slot>
+      </div>
+      <div class="close-box" @click="closeModal">
+        <img src="@assets/image/close.png" />
       </div>
     </div>
   </div>
@@ -17,7 +39,7 @@
 <script setup>
 import { ref, defineEmits, watch } from "vue";
 
-const isModalVisible = ref(false);
+const isModalVisible = ref(true);
 
 const emits = defineEmits(["close"]);
 
@@ -25,7 +47,7 @@ function openModal() {
   isModalVisible.value = true;
 }
 
-// document.body.style.overflow = "hidden";
+document.body.style.overflow = "hidden";
 
 // 阻止滚动
 watch(isModalVisible, (newVal, oldVal) => {
@@ -42,6 +64,8 @@ function closeModal() {
   isModalVisible.value = false;
   emits("close");
 }
+
+const step = ref(1);
 </script>
 
 <style scoped lang="scss">
@@ -99,5 +123,57 @@ function closeModal() {
   margin-top: 80px;
   width: 280px;
   height: 35%;
+  flex-shrink: 0;
+  display: flex;
+
+  .avatar {
+    flex-shrink: 0;
+    width: 27%;
+    height: auto;
+    object-fit: contain;
+    padding: 2px;
+  }
+  .content-info {
+    padding: 10px;
+    padding-top: 30px;
+    .row {
+      display: flex;
+      .label {
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+.footer-box {
+  display: flex;
+  border: 1px solid purple;
+  width: 280px;
+  flex-shrink: 0;
+  margin-top: 40px;
+  justify-content: space-between;
+  .back {
+    width: 45%;
+    height: auto;
+  }
+  .next {
+    width: 45%;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.close-box {
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  img {
+    width: 100%;
+  }
 }
 </style>
