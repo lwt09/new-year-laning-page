@@ -34,7 +34,7 @@ import Dialog from "../components/Dialog.vue";
   background-repeat: no-repeat;
   background-position: top left;
   width: 100%;
-  height: 3000px;
+  height: 1500px;
 
   display: flex;
   flex-direction: column;

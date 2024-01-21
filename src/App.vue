@@ -12,9 +12,10 @@ console.log(device, isMobile.value, 11);
 </script>
 
 <template>
-  <webUI v-if="!isMobile" />
+  <div style="width: 350px; margin: 0 auto;" v-if="!isMobile">
+    <mobileUI />
+  </div>
   <mobileUI v-if="isMobile" />
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
