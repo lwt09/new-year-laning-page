@@ -16,4 +16,5 @@ console.log(device, isMobile.value, 11);
   <mobileUI v-if="isMobile" />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>
