@@ -1,29 +1,22 @@
 <template>
   <div class="mobile-cont">
-    <img src="@assets/image/2024.png" class="img-2024" alt="" />
+    <img src="@assets/image/2024.png" class="img-2024" />
 
     <div class="home-box">
-      <img
-        class="home-box-title-text"
-        src="@assets/image/home-box-text.png"
-        alt=""
-      />
+      <img class="home-box-title-text" src="@assets/image/home-box-text.png" />
+      <img class="home-box-light" src="@assets/image/light.png" />
       <div class="countdown-sec">
         <Countdown endTime="2024-02-09T20:00:00" />
       </div>
-      <img
-        class="home-box-title-sec"
-        src="@assets/image/home-box-title.png"
-        alt=""
-      />
-      <img class="QR-code" src="@assets/image/Qr-code-temp.png" alt="" />
+      <img class="home-box-title-sec" src="@assets/image/home-box-title.png" />
+      <img class="QR-code" src="@assets/image/Qr-code-temp.png" />
     </div>
   </div>
 </template>
 
 <script setup>
 import Countdown from "../components/Countdown.vue";
-import SaveImg from "../components/SaveImg.vue";
+import SaveImg from "../components/Saveimg.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -47,16 +40,24 @@ import SaveImg from "../components/SaveImg.vue";
   }
 
   .home-box {
-    width: 95%;
+    width: 100%;
+    padding: 0 10px;
     height: 400px;
     background-image: url("@assets/image/box.png");
-    background-size: 100% auto;
+    background-size: 95% auto;
     background-repeat: no-repeat;
-    background-position: top left;
+    background-position: top center;
 
     margin-top: 280px;
 
     position: relative;
+
+    .home-box-light {
+      width: 40px;
+      position: absolute;
+      top: 20px;
+      left: 0px;
+    }
 
     .countdown-sec {
       width: 73%;
