@@ -1,7 +1,22 @@
-# Vue 3 + Vite
+# AI-春晚-落地页
+该项目服务于宣传“AI春晚”，通过落地页为传播媒介，向各种直播平台引流。
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 技术栈
 
-## Recommended IDE Setup
+- [Vite 5](https://vitejs.dev/): 下一代前端开发与构建工具。
+- [Vue 3](https://v3.vuejs.org/): 渐进式JavaScript框架。
+- [Sass](https://sass-lang.com/): 成熟、稳定、强大的CSS扩展语言。
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## 安装
+
+确保你已安装了[node.js](https://nodejs.org/)和包管理器如[npm](https://www.npmjs.com/)。
+
+```bash
+# 克隆项目到本地
+git clone git@github.com:lwt09/new-year-laning-page.git
+
+# 进入项目目录
+cd new-year-landing
+
+# 安装依赖
+npm install
