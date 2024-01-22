@@ -1,13 +1,13 @@
 <template>
   <div class="mobile-cont">
-    <video
+    <!-- <video
       style="position: absolute; top: -1px; width: 100%"
       autoplay
       loop
       muted
       playsinline
       src="@assets/temp-video.mp4"
-    ></video>
+    ></video> -->
     <img src="@assets/image/2024.png" class="img-2024" />
 
     <div class="home-box">
@@ -25,7 +25,6 @@
       </div>
     </div>
   </div>
-
   <Dialog />
 </template>
 
